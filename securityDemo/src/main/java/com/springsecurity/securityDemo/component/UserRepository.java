@@ -15,8 +15,8 @@ public class UserRepository {
 
     public UserRepository(PasswordEncoder passwordEncoder) {
         // Predefined users with encoded passwords
-        users.add(new User("user1", passwordEncoder.encode("password1")));
-        users.add(new User("user2", passwordEncoder.encode("password2")));
+        users.add(new User("user1", passwordEncoder.encode("password1"), List.of("ROLE_USER")));
+        users.add(new User("user2", passwordEncoder.encode("password2"), List.of("ROLE_ADMIN", "ROLE_USER")));
     }
 
     public Optional<User> findByUsername(String username) {
